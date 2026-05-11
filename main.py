@@ -22,7 +22,7 @@ def add_favorite(fav: FavoriteFood):
     favorites_db.append(fav)
     return {"message": f"Added {fav.name}'s favorite: {fav.food}"}
 
-# DELETE method – remove a favorite by name
+# DELETE method to remove a favorite by name
 @app.delete("/favorite/{name}")
 def delete_favorite(name: str):
     global favorites_db
