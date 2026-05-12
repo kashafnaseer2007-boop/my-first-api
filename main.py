@@ -8,8 +8,7 @@ app = FastAPI()
 @app.get("/hello/{name}")
 def say_hello(name: str):
     return {"message": f"Hello, {name}! You're awesome!"}
-    from fastapi import FastAPI
-
+    
 # POST endpoint to receive an order
 favorites_db = []
 
