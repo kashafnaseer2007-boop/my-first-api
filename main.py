@@ -5,9 +5,27 @@ from pydantic import BaseModel
 app = FastAPI()
 
 # Homepage: just say hello
+# In-memory DB
+greetings_db = {}
+
 @app.get("/hello/{name}")
 def say_hello(name: str):
+    if name in greetings_db:
+        custom = greetings_db[name]
+        return {"message": f"{custom}, {name}!"}
     return {"message": f"Hello, {name}! You're awesome!"}
+
+# PUT - update greeting
+class GreetingUpdate(BaseModel):
+    new_message: str
+
+@app.put("/hello/{name}")
+def update_greeting(name: str, update: GreetingUpdate):
+    greetings_db[name] = update.new_message
+    return {
+        "message": f"Greeting for {name} updated!",
+        "new_greeting": f"{update.new_message}, {name}!"
+    }
     
 # POST endpoint to receive an order
 favorites_db = []
