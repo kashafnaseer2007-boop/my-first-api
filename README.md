@@ -1,6 +1,6 @@
 # Robot Waiter API – First FastAPI Practice
 
-A simple, fun **Robot Waiter** API that greets you by name.  
+A simple, fun **Robot Waiter** API that greets you by your name.  
 Built with **FastAPI** – my first API project to practice REST endpoints and path parameters.
 
 ## Features
